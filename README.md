@@ -8,27 +8,28 @@ curl -L https://foundry.paradigm.xyz | bash
 # logout/login, then
 foundryup
 ```
+<br>
 
 Important numbers are the `lag` values:
 ```
 Sync lag:         X (internal)
 ```
 This is how close our node is to a reference node (in this case forno). Should be less than 10 if we are healthy. Or if we are syncing, it should decrease over time.
-
-
+<br>
+<br>
 
 ```
 Safe lag:       XXXXX block(s) behind unsafe
 ```
 This shows the distance between the "safe" block height and the "unsafe" block height. When things are very healthy, this is generally less than 1,000. Values of 20,000 seem to be ok. When it creeps up to 200,000 or more, we *might* be in trouble. This is the number that dictates how far we will "walk back" if we do a restart.
-
-
+<br>
+<br>
 
 ```
 Finalized lag:  XXXXX block(s) behind safe
 ```
 Healthy is generally a few hundred. 0 usually means that the safe height is not advancing sufficiently.
-
-
+<br>
+<br>
 
 When we are syncing, we want to see the safe height decreasing over time. Once it is sufficiently small, the unsafe height will start advancing toward the reference node block height.
